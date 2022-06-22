@@ -1245,11 +1245,19 @@ ice_fdir_extract_fltr_key(struct ice_fdir_fltr_pattern *key,
 	key->flow_type = input->flow_type;
 	rte_memcpy(&key->ip, &input->ip, sizeof(key->ip));
 	rte_memcpy(&key->mask, &input->mask, sizeof(key->mask));
+
+	rte_memcpy(&key->ip_outer, &input->ip_outer, sizeof(key->ip_outer));
+	rte_memcpy(&key->mask_outer, &input->mask_outer, sizeof(key->mask_outer));
+
 	rte_memcpy(&key->ext_data, &input->ext_data, sizeof(key->ext_data));
 	rte_memcpy(&key->ext_mask, &input->ext_mask, sizeof(key->ext_mask));
 
 	rte_memcpy(&key->ext_data_outer, &input->ext_data_outer, sizeof(key->ext_data_outer));
 	rte_memcpy(&key->ext_mask_outer, &input->ext_mask_outer, sizeof(key->ext_mask_outer));
+
+	rte_memcpy(&key->vxlan_data, &input->vxlan_data, sizeof(key->vxlan_data));
+	rte_memcpy(&key->vxlan_mask, &input->vxlan_mask, sizeof(key->vxlan_mask));
+
 	rte_memcpy(&key->gtpu_data, &input->gtpu_data, sizeof(key->gtpu_data));
 	rte_memcpy(&key->gtpu_mask, &input->gtpu_mask, sizeof(key->gtpu_mask));
 
